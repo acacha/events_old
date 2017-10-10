@@ -99,7 +99,7 @@ class EventsTest extends TestCase
     public function testStoreEventForm()
     {
         // Preparo
-        $event = factory(Event::class)->create();
+        $event = factory(Event::class)->make();
         // Executo
         $response = $this->post('/events',[
             'name' => $event->name,
@@ -129,14 +129,16 @@ class EventsTest extends TestCase
         // Comprovo
         $response->assertStatus(200);
         $response->assertRedirect('events/create');
-        $response->assertSeeText('Created ok!');
+        $response->assertSeeText('Edited ok!');
 
         $this->assertDatabaseHas('events',[
+            'id' =>  $event->id,
             'name' => $newEvent->name,
             'description' => $newEvent->description,
         ]);
 
         $this->assertDatabaseMissing('events',[
+            'id' =>  $event->id,
             'name' => $event->name,
             'description' => $event->description,
         ]);
