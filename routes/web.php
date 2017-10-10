@@ -31,3 +31,5 @@ Route::get('/events_alt/{id}','EventController@show1');  // 2 Retrieve -> 1 recu
 
 
 //Route::get('/events/{event}','EventController@show');  // 2 Retrieve -> 1 recurs concret
+
+Route::resource('Patata','PatataController');

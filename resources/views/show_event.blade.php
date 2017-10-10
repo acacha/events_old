@@ -1,6 +1,8 @@
 <h1>Event:</h1>
 
-<ul class="event">
+<ul>
     <li>Name: {{ $event->name }}</li>
     <li>Description: {{ $event->description }}</li>
 </ul>
+
+
