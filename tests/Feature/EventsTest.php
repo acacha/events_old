@@ -144,6 +144,9 @@ class EventsTest extends TestCase
         ]);
     }
 
+    /**
+     * @group working
+     */
     public function testDeleteEvent()
     {
         // Preparo
@@ -151,7 +154,7 @@ class EventsTest extends TestCase
         // Executo
         $response = $this->delete('/events/' . $event->id);
         // Comprovo
-        $response->assertStatus(200);
+//        $response->assertStatus(200);
         $response->assertRedirect('events');
         $response->assertSeeText('Deleted ok!');
 
